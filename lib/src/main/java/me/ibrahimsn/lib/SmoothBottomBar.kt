@@ -475,9 +475,9 @@ class SmoothBottomBar @JvmOverloads constructor(
 
 
         // Draw indicator
-        rect.left = indicatorLocation + barSideMargins
+        rect.left = indicatorLocation + barSideMargins/2
         rect.top = items[itemActiveIndex].rect.height()/3 - itemIconSize / 2 - itemPadding/2
-        rect.right = indicatorLocation + itemWidth - barSideMargins
+        rect.right = indicatorLocation + itemWidth - barSideMargins/2
         rect.bottom = items[itemActiveIndex].rect.height()/3 + itemIconSize / 2 + itemPadding/2
 
         canvas.drawRoundRect(
@@ -540,7 +540,10 @@ class SmoothBottomBar @JvmOverloads constructor(
 
                 tintAndDrawIcon(item, index, canvas)
 
-                paintText.alpha = item.alpha
+//                paintText.alpha = item.alpha
+                //paintText.textSize = (itemTextSize*scaleFactor).toFloat()
+                paintText.color = if (index == itemActiveIndex) barIndicatorColor else itemTextColor
+
                 canvas.drawText(
                     item.title,
                     item.rect.centerX() ,
