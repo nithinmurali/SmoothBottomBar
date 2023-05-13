@@ -36,6 +36,7 @@
         app:cornerRadius="16dp"
         app:corners="top_left|bottom_right"
         app:menu="@menu/menu_bottom"
+        app:duration="500"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
