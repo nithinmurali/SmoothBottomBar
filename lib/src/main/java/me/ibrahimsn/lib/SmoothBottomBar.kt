@@ -540,9 +540,9 @@ class SmoothBottomBar @JvmOverloads constructor(
 
                 tintAndDrawIcon(item, index, canvas)
 
-//                paintText.alpha = item.alpha
                 //paintText.textSize = (itemTextSize*scaleFactor).toFloat()
                 paintText.color = if (index == itemActiveIndex) barIndicatorColor else itemTextColor
+                paintText.alpha = item.alpha
 
                 canvas.drawText(
                     item.title,
@@ -613,7 +613,7 @@ class SmoothBottomBar @JvmOverloads constructor(
                 if (index == itemActiveIndex) {
                     animateAlpha(item, OPAQUE)
                 } else {
-                    animateAlpha(item, TRANSPARENT)
+                    animateAlpha(item, TRANSLUCENT)
                 }
             }
 
@@ -730,6 +730,7 @@ class SmoothBottomBar @JvmOverloads constructor(
         private const val DEFAULT_BAR_CORNERS = TOP_LEFT_CORNER or TOP_RIGHT_CORNER
 
         private const val OPAQUE = 255
+        private const val TRANSLUCENT = 200
         private const val TRANSPARENT = 0
     }
 }
